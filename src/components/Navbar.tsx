@@ -13,24 +13,33 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
+const [scrolled, setScrolled] = useState(
+  typeof window !== "undefined" ? window.scrollY > 20 : false
+);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+useEffect(() => {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
 
+  setTimeout(() => window.scrollTo(0, 0), 0);
+
+  const onScroll = () => setScrolled(window.scrollY > 20);
+  onScroll();
+  window.addEventListener("scroll", onScroll);
+
+  return () => window.removeEventListener("scroll", onScroll);
+}, []);
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-gray-200"
-          : "bg-white/80 backdrop-blur-md"
-      }`}
-    >
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+  <nav
+  className={`fixed top-0 inset-x-0 z-[100] w-full transition-all duration-300 ${
+    scrolled
+      ? "bg-white/95 backdrop-blur-md border-b border-gray-200"
+      : "bg-white/80 backdrop-blur-md"
+  }`}
+>
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between px-6 py-4">
 
         {/* Brand */}
         <a href="#home" className="flex items-center gap-3">
