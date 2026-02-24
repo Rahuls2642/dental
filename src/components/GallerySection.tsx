@@ -12,7 +12,7 @@ const images = [
 ];
 
 const GallerySection = () => (
-  <section id="gallery" className="py-24 bg-white">
+  <section id="gallery" className="py-24 bg-white scroll-mt-28">
     <div className="container mx-auto px-6">
 
       {/* Header */}

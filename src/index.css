@@ -110,6 +110,6 @@
     box-shadow: var(--shadow-hero);
   }
 }
-body {
-  overscroll-behavior: none;
+html {
+  scroll-behavior: smooth;
 }

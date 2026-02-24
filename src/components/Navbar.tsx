@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Booking", href: "#appointment" },
   { label: "Doctor", href: "#doctor" },
   { label: "Reviews", href: "#reviews" },
   { label: "Gallery", href: "#gallery" },
@@ -61,13 +62,14 @@ useEffect(() => {
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              {link.label}
-            </a>
+           <a
+  key={link.href}
+  href={link.href}
+  onClick={() => setMobileOpen(false)}
+  className="text-gray-700 hover:text-emerald-600 transition-colors"
+>
+  {link.label}
+</a>
           ))}
 
           <a
@@ -97,21 +99,30 @@ useEffect(() => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-200"
-          >
+  initial={{ opacity: 0, y: -10 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: -10 }}
+  transition={{ duration: 0.2 }}
+  className="lg:hidden bg-white border-t border-gray-200"
+>
             <div className="container mx-auto px-6 py-6 flex flex-col gap-5">
               {navLinks.map((link) => (
                 <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-gray-700 hover:text-emerald-600 transition-colors"
-                >
-                  {link.label}
-                </a>
+  key={link.href}
+  href={link.href}
+  onClick={(e) => {
+    e.preventDefault();
+    setMobileOpen(false);
+
+    const section = document.querySelector(link.href);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="text-gray-700 hover:text-emerald-600 transition-colors"
+>
+  {link.label}
+</a>
               ))}
 
               <a
