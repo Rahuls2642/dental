@@ -1,6 +1,6 @@
 import { Award, GraduationCap, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import doctorImg from "@/assets/doctor.jpg"; // replace with real image
+import doctorImg from "@/assets/doctor.webp"; // replace with real image
 
 const DoctorSection = () => (
   <section id="doctor" className="py-24 bg-[#f9fafb]">
@@ -36,24 +36,24 @@ const DoctorSection = () => (
           </span>
 
           <h2 className="mt-4 text-4xl font-semibold text-gray-900">
-            Dr. Nisha
+            Dr. Bhardwaj
           </h2>
 
           <p className="mt-1 text-emerald-600 font-medium">
-            BDS, MDS — Specialist in Pediatric & Family Dentistry
+            BDS, MIDA — Specialist in Pediatric & Family Dentistry
           </p>
 
           <p className="mt-6 text-gray-600 leading-relaxed max-w-lg">
-            With over a decade of clinical experience, Dr. Nisha is dedicated
-            to delivering compassionate, precision-driven dental care. Her
+            With over a decade of clinical experience, Dr. Bhardwaj is dedicated
+            to delivering compassionate, precision-driven dental care. His
             patient-first philosophy ensures comfort, clarity, and long-term
-            oral health for every family she treats.
+            oral health for every family he treats.
           </p>
 
           {/* Credentials */}
           <div className="mt-10 flex flex-wrap gap-10">
             {[
-              { icon: GraduationCap, label: "BDS, MDS" },
+              { icon: GraduationCap, label: "BDS, MIDA" },
               { icon: Award, label: "10+ Years Experience" },
               { icon: Users, label: "5000+ Patients Treated" },
             ].map((item) => (

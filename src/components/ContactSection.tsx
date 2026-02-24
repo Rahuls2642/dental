@@ -45,11 +45,11 @@ const ContactSection = () => (
             <div>
               <h3 className="text-lg font-medium text-gray-900">Address</h3>
               <p className="mt-1 text-gray-600 text-sm leading-relaxed">
-                Shop No xxx, FF, xxx Market,<br />
-                Sector 55, State, City 121015
+                Shop no-10, Huda Market,<br />
+                Sector 55, Faridabad, Haryana 121015
               </p>
               <a
-                href="https://www.google.com/maps"
+                href="https://www.google.com/maps/dir/?api=1&destination=28.3449509,77.2943026"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-block text-sm font-medium text-emerald-600 hover:underline"
@@ -68,7 +68,7 @@ const ContactSection = () => (
                 href="tel:08810549632"
                 className="mt-1 block text-sm font-medium text-gray-700 hover:text-emerald-600"
               >
-                08810 xxxxxx
+                98103 15978
               </a>
             </div>
           </div>
@@ -97,7 +97,7 @@ const ContactSection = () => (
         >
           <iframe
             title="Complete Dental Care Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.1!2d77.3!3d28.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI0JzAwLjAiTiA3N8KwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin&q=Complete+Dental+Care+Sector+55+Faridabad"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d877.8649037030292!2d77.29430256954014!3d28.344950898488964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdbfad0016f73%3A0xce92ad7e3f85c713!2sBhardwaj%20Dental%20Care!5e0!3m2!1sen!2sin!4v1771932884636!5m2!1sen!2sin"
             className="w-full h-[420px]"
             style={{ border: 0 }}
             loading="lazy"

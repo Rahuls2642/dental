@@ -35,12 +35,12 @@ const Navbar = () => {
         {/* Brand */}
         <a href="#home" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 text-white font-semibold">
-            C
+            B
           </div>
 
           <div className="leading-tight">
             <span className="block text-sm font-semibold text-gray-900">
-              Complete Dental Care
+              Bhardwaj dental care
             </span>
             <span className="block text-[11px] text-gray-500">
               Multi Speciality Clinic

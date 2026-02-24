@@ -48,8 +48,8 @@ const Footer = () => (
             <p className="flex items-start gap-3">
               <MapPin className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
               <span>
-                Shop No xxx, FF, xxx Market,<br />
-                Sector 55, State, City 121015
+                Shop no-10, Huda Market,<br />
+                Sector 55, Faridabad, Haryana 121015
               </span>
             </p>
 
@@ -58,7 +58,7 @@ const Footer = () => (
               className="flex items-center gap-3 hover:text-emerald-600 transition-colors"
             >
               <Phone className="h-5 w-5 text-emerald-600" />
-              08810 xxxxx
+              98103 15978
             </a>
           </div>
         </div>

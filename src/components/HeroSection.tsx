@@ -2,89 +2,90 @@ import { Star, Phone, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-dental.jpg";
 
-const HeroSection = () => (
-  <section
-    id="home"
-    className="relative min-h-screen flex items-center bg-[#f8fafc] overflow-hidden"
-  >
-    {/* Soft Background Image */}
-    <div className="absolute inset-0">
-      <img
-        src={heroBg}
-        alt="Modern dental clinic"
-        className="h-full w-full object-cover opacity-20"
-        loading="eager"
-      />
-    </div>
+const HeroSection = () => {
+  return (
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
+    >
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt="Modern dental clinic"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/55" />
+      </div>
 
-    <div className="container relative mx-auto px-6 py-28">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-3xl"
+        className="relative z-10 max-w-4xl px-6"
       >
-        {/* Small Tag */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 border border-emerald-100">
-          <Star className="h-4 w-4 text-emerald-600 fill-emerald-600" />
-          <span className="text-sm font-medium text-emerald-700">
-            Rated 4.9 by 100+ Patients
+        {/* Trust Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-5 py-2 border border-white/20">
+          <Star className="h-4 w-4 text-emerald-400 fill-emerald-400" />
+          <span className="text-sm font-medium text-white">
+            Rated 4.6 on Google Maps
           </span>
         </div>
 
-        {/* Headline (Not Overbold) */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900 tracking-tight">
-          Precision Dentistry.
+        {/* Headline */}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-white tracking-tight">
+          Confident Smiles Begin Here.
           <br />
-          <span className="text-emerald-600">
-            Designed Around Your Comfort.
+          <span className="text-emerald-400">
+            Modern Dentistry. Personal Care.
           </span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-lg text-gray-600 leading-relaxed">
+        <p className="mt-6 text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto">
           Advanced treatments, experienced specialists, and a calm
-          patient-first environment — delivering confident smiles in Faridabad.
+          patient-first environment — delivering exceptional dental care in
+          Faridabad.
         </p>
 
-        {/* CTA Row */}
-        <div className="mt-10 flex flex-wrap items-center gap-5">
+        {/* CTA Buttons */}
+        <div className="mt-10 flex flex-wrap justify-center gap-5">
           <a
             href="#appointment"
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-8 py-3.5 text-base font-medium text-white shadow-md transition-all hover:bg-emerald-700 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-8 py-3.5 text-base font-medium text-white shadow-lg transition-all hover:bg-emerald-600 hover:-translate-y-0.5"
           >
             <CalendarDays className="h-5 w-5" />
             Book Consultation
           </a>
 
           <a
-            href="tel:08810549632"
-            className="inline-flex items-center gap-2 text-gray-700 font-medium hover:text-emerald-600 transition-colors"
+            href="tel:9810315978"
+            className="inline-flex items-center gap-2 text-white font-medium hover:text-emerald-400 transition-colors"
           >
             <Phone className="h-5 w-5" />
-            08810 xxxxx
+            098103 15978
           </a>
         </div>
 
-        {/* Soft Divider Stats */}
-        <div className="mt-14 flex gap-12 text-gray-700">
+        {/* Stats */}
+        <div className="mt-16 flex flex-wrap justify-center gap-10 text-white">
           <div>
-            <p className="text-3xl font-semibold text-gray-900">12+</p>
-            <p className="text-sm text-gray-500">Years Experience</p>
+            <p className="text-3xl font-semibold">12+</p>
+            <p className="text-sm text-gray-300">Years Experience</p>
           </div>
 
           <div>
-            <p className="text-3xl font-semibold text-gray-900">5K+</p>
-            <p className="text-sm text-gray-500">Smiles Treated</p>
+            <p className="text-3xl font-semibold">5K+</p>
+            <p className="text-sm text-gray-300">Smiles Treated</p>
           </div>
 
           <div>
-            <p className="text-3xl font-semibold text-gray-900">100%</p>
-            <p className="text-sm text-gray-500">Patient Focused</p>
+            <p className="text-3xl font-semibold">100%</p>
+            <p className="text-sm text-gray-300">Patient Focused</p>
           </div>
         </div>
       </motion.div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default HeroSection;

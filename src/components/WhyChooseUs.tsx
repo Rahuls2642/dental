@@ -2,7 +2,7 @@ import { Star, Stethoscope, Monitor, IndianRupee, Siren } from "lucide-react";
 import { motion } from "framer-motion";
 
 const reasons = [
-  { icon: Star, title: "4.9 Google Rating", desc: "Trusted by 100+ patients with consistently excellent reviews." },
+  { icon: Star, title: "4.6 Google Rating", desc: "Trusted by 100+ patients with consistently excellent reviews." },
   { icon: Stethoscope, title: "Experienced Specialists", desc: "Qualified dentists with years of clinical expertise." },
   { icon: Monitor, title: "Advanced Technology", desc: "Modern diagnostic tools for precision and comfort." },
   { icon: IndianRupee, title: "Transparent Pricing", desc: "High-quality care at fair and honest pricing." },
