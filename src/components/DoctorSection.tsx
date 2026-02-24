@@ -9,12 +9,12 @@ const DoctorSection = () => (
       <div className="grid lg:grid-cols-2 gap-16 items-center">
 
         {/* Doctor Image */}
-        <motion.div
+       <motion.div
   initial={{ opacity: 0, x: -40 }}
   whileInView={{ opacity: 1, x: 0 }}
   viewport={{ once: true }}
   transition={{ duration: 0.6 }}
-  className="relative mx-auto lg:mx-0 max-w-md"
+  className="relative mx-auto lg:mx-0 max-w-md hidden lg:block order-2 lg:order-1"
 >
   <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/5]">
     <img
@@ -26,15 +26,23 @@ const DoctorSection = () => (
 </motion.div>
         {/* Doctor Info */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+  initial={{ opacity: 0, x: 40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="order-1 lg:order-2"
+>
           <span className="text-sm font-medium uppercase tracking-wide text-emerald-600">
             Meet Your Dentist
           </span>
-
+{/* Mobile Image */}
+<div className="mt-6 rounded-3xl overflow-hidden shadow-xl aspect-[4/5] lg:hidden">
+  <img
+    src={doctorImg}
+    alt="Dr. Bhardwaj"
+    className="w-full h-full object-cover object-top"
+  />
+</div>
           <h2 className="mt-4 text-4xl font-semibold text-gray-900">
             Dr. Bhardwaj
           </h2>
