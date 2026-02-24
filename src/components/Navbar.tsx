@@ -33,7 +33,8 @@ useEffect(() => {
 }, []);
   return (
   <nav
-  className={`fixed top-0 inset-x-0 z-[100] w-full transition-all duration-300 ${
+  style={{ top: 0, position: 'fixed' }}
+  className={`inset-x-0 z-[100] w-full transition-all duration-300 ${
     scrolled
       ? "bg-white/95 backdrop-blur-md border-b border-gray-200"
       : "bg-white/80 backdrop-blur-md"
