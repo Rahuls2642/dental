@@ -26,75 +26,90 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-card/95 backdrop-blur-md shadow-card border-b border-border"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md border-b border-gray-200"
+          : "bg-white/80 backdrop-blur-md"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 py-3 lg:py-4">
-        <a href="#home" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl dental-gradient">
-            <span className="text-lg font-bold text-primary-foreground">C</span>
+      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+
+        {/* Brand */}
+        <a href="#home" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 text-white font-semibold">
+            C
           </div>
+
           <div className="leading-tight">
-            <span className="block text-sm font-bold text-foreground">Complete Dental Care</span>
-            <span className="block text-[10px] font-medium text-muted-foreground">Advanced Multi Speciality Clinic</span>
+            <span className="block text-sm font-semibold text-gray-900">
+              Complete Dental Care
+            </span>
+            <span className="block text-[11px] text-gray-500">
+              Multi Speciality Clinic
+            </span>
           </div>
         </a>
 
-        {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm text-gray-600 hover:text-emerald-600 transition-colors"
             >
               {link.label}
             </a>
           ))}
+
           <a
             href="tel:08810549632"
-            className="dental-gradient inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-hero transition-transform hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-emerald-700"
           >
-            <Phone className="h-4 w-4" /> Call Now
+            <Phone className="h-4 w-4" />
+            Call Now
           </a>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2 text-foreground"
+          className="lg:hidden text-gray-800"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card/95 backdrop-blur-md border-b border-border overflow-hidden"
+            className="lg:hidden bg-white border-t border-gray-200"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+            <div className="container mx-auto px-6 py-6 flex flex-col gap-5">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-1"
+                  className="text-gray-700 hover:text-emerald-600 transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
+
               <a
                 href="tel:08810549632"
-                className="dental-gradient inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-primary-foreground mt-2"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-medium text-white hover:bg-emerald-700"
               >
-                <Phone className="h-4 w-4" /> Call Now
+                <Phone className="h-4 w-4" />
+                Call Now
               </a>
             </div>
           </motion.div>

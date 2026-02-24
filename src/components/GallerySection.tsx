@@ -12,36 +12,55 @@ const images = [
 ];
 
 const GallerySection = () => (
-  <section id="gallery" className="py-20 lg:py-28 dental-gradient-soft">
-    <div className="container mx-auto px-4">
+  <section id="gallery" className="py-24 bg-white">
+    <div className="container mx-auto px-6">
+
+      {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mx-auto max-w-2xl text-center"
+        transition={{ duration: 0.6 }}
+        className="max-w-2xl"
       >
-        <span className="text-sm font-semibold uppercase tracking-wider text-primary">Gallery</span>
-        <h2 className="mt-3 text-3xl font-bold text-foreground lg:text-4xl">Our Clinic</h2>
+        <span className="text-sm font-medium uppercase tracking-wide text-emerald-600">
+          Gallery
+        </span>
+
+        <h2 className="mt-4 text-4xl font-semibold text-gray-900">
+          Inside Our Clinic.
+        </h2>
+
+        <p className="mt-4 text-gray-600">
+          A glimpse into our modern facilities and patient-focused environment.
+        </p>
+
+        <div className="mt-8 h-px w-20 bg-emerald-500" />
       </motion.div>
 
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Masonry Grid */}
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
+
         {images.map((img, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="group overflow-hidden rounded-2xl shadow-card"
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className={`group overflow-hidden rounded-3xl ${
+              i === 0 ? "lg:row-span-2" : ""
+            }`}
           >
             <img
               src={img.src}
               alt={img.alt}
               loading="lazy"
-              className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
             />
           </motion.div>
         ))}
+
       </div>
     </div>
   </section>

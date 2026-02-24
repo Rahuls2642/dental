@@ -2,77 +2,109 @@ import { MapPin, Phone, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 const ContactSection = () => (
-  <section id="contact" className="py-20 lg:py-28">
-    <div className="container mx-auto px-4">
+  <section id="contact" className="py-24 bg-[#f9fafb]">
+    <div className="container mx-auto px-6">
+
+      {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mx-auto max-w-2xl text-center"
+        transition={{ duration: 0.6 }}
+        className="max-w-2xl"
       >
-        <span className="text-sm font-semibold uppercase tracking-wider text-primary">Contact</span>
-        <h2 className="mt-3 text-3xl font-bold text-foreground lg:text-4xl">Find Us</h2>
+        <span className="text-sm font-medium uppercase tracking-wide text-emerald-600">
+          Contact
+        </span>
+
+        <h2 className="mt-4 text-4xl font-semibold text-gray-900">
+          Visit Our Clinic.
+        </h2>
+
+        <p className="mt-4 text-gray-600">
+          Conveniently located in Sector 55, Faridabad. We’re here to help you smile confidently.
+        </p>
+
+        <div className="mt-8 h-px w-20 bg-emerald-500" />
       </motion.div>
 
-      <div className="mt-14 grid gap-8 lg:grid-cols-2">
-        {/* Info */}
+      {/* Content */}
+      <div className="mt-16 grid lg:grid-cols-2 gap-16 items-start">
+
+        {/* Contact Info */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          transition={{ duration: 0.6 }}
+          className="space-y-10"
         >
+          {/* Address */}
           <div className="flex gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary">
-              <MapPin className="h-5 w-5 text-primary" />
-            </div>
+            <MapPin className="h-6 w-6 text-emerald-600 shrink-0 mt-1" />
             <div>
-              <h3 className="font-bold text-foreground">Address</h3>
-              <p className="text-sm text-muted-foreground">
-                Shop no 111, FF, HUDA Market, Sector 55, Faridabad, Haryana 121015
+              <h3 className="text-lg font-medium text-gray-900">Address</h3>
+              <p className="mt-1 text-gray-600 text-sm leading-relaxed">
+                Shop No 111, FF, HUDA Market,<br />
+                Sector 55, Faridabad, Haryana 121015
               </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary">
-              <Phone className="h-5 w-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="font-bold text-foreground">Phone</h3>
-              <a href="tel:08810549632" className="text-sm text-primary font-medium hover:underline">
-                088-105-49632
+              <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm font-medium text-emerald-600 hover:underline"
+              >
+                Get Directions →
               </a>
             </div>
           </div>
+
+          {/* Phone */}
           <div className="flex gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary">
-              <Clock className="h-5 w-5 text-primary" />
-            </div>
+            <Phone className="h-6 w-6 text-emerald-600 shrink-0 mt-1" />
             <div>
-              <h3 className="font-bold text-foreground">Working Hours</h3>
-              <p className="text-sm text-muted-foreground">Open Daily — Closes at 8:15 PM</p>
+              <h3 className="text-lg font-medium text-gray-900">Phone</h3>
+              <a
+                href="tel:08810549632"
+                className="mt-1 block text-sm font-medium text-gray-700 hover:text-emerald-600"
+              >
+                08810 549632
+              </a>
+            </div>
+          </div>
+
+          {/* Hours */}
+          <div className="flex gap-4">
+            <Clock className="h-6 w-6 text-emerald-600 shrink-0 mt-1" />
+            <div>
+              <h3 className="text-lg font-medium text-gray-900">
+                Working Hours
+              </h3>
+              <p className="mt-1 text-sm text-gray-600">
+                Open Daily — 10:00 AM to 8:15 PM
+              </p>
             </div>
           </div>
         </motion.div>
 
         {/* Map */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="overflow-hidden rounded-2xl shadow-card"
+          transition={{ duration: 0.6 }}
+          className="overflow-hidden rounded-3xl border border-gray-200"
         >
           <iframe
             title="Complete Dental Care Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.1!2d77.3!3d28.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI0JzAwLjAiTiA3N8KwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin&q=Complete+Dental+Care+Sector+55+Faridabad"
-            width="100%"
-            height="320"
+            className="w-full h-[420px]"
             style={{ border: 0 }}
-            allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
         </motion.div>
+
       </div>
     </div>
   </section>

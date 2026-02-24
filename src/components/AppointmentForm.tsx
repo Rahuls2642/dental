@@ -1,6 +1,25 @@
 import { useState } from "react";
 import { CalendarDays, CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+interface FormData {
+  name: string;
+  phone: string;
+  email: string;
+  service: string;
+  date: string;
+  time: string;
+  message: string;
+}
+
+const initialForm: FormData = {
+  name: "",
+  phone: "",
+  email: "",
+  service: "",
+  date: "",
+  time: "",
+  message: "",
+};
 
 const serviceOptions = [
   "Teeth Cleaning",
@@ -21,30 +40,19 @@ const timeSlots = [
   "07:00 PM", "07:30 PM",
 ];
 
-interface FormData {
-  name: string;
-  phone: string;
-  email: string;
-  service: string;
-  date: string;
-  time: string;
-  message: string;
-}
-
-const initialForm: FormData = { name: "", phone: "", email: "", service: "", date: "", time: "", message: "" };
-
 const AppointmentForm = () => {
-  const [form, setForm] = useState<FormData>(initialForm);
+  const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // API-ready: send form data to backend here
-    console.log("Appointment submitted:", form);
+    console.log(form);
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -53,44 +61,64 @@ const AppointmentForm = () => {
   };
 
   const inputClass =
-    "w-full rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow";
+    "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition";
 
   return (
-    <section id="appointment" className="py-20 lg:py-28 dental-gradient-soft">
-      <div className="container mx-auto px-4">
+    <section id="appointment" className="py-24 bg-[#f9fafb]">
+      <div className="container mx-auto px-6">
+
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto max-w-2xl text-center"
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl"
         >
-          <span className="text-sm font-semibold uppercase tracking-wider text-primary">Appointment</span>
-          <h2 className="mt-3 text-3xl font-bold text-foreground lg:text-4xl">Book Your Visit</h2>
-          <p className="mt-4 text-muted-foreground">Fill in the form below and we'll get back to you shortly.</p>
+          <span className="text-sm font-medium uppercase tracking-wide text-emerald-600">
+            Appointment
+          </span>
+
+          <h2 className="mt-4 text-4xl font-semibold text-gray-900">
+            Schedule Your Visit.
+          </h2>
+
+          <p className="mt-4 text-gray-600">
+            Choose your preferred service, date and time. Our team will confirm shortly.
+          </p>
         </motion.div>
 
+        {/* Form Card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="mx-auto mt-12 max-w-2xl rounded-2xl bg-card p-8 shadow-card lg:p-10"
+          transition={{ delay: 0.15 }}
+          className="mt-14 max-w-3xl rounded-3xl border border-gray-100 bg-white p-10"
         >
           <AnimatePresence mode="wait">
             {submitted ? (
               <motion.div
                 key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex flex-col items-center gap-4 py-12 text-center"
+                className="flex flex-col items-center gap-5 py-16 text-center"
               >
-                <CheckCircle className="h-16 w-16 text-primary" />
-                <h3 className="text-xl font-bold text-foreground">Appointment Request Sent!</h3>
-                <p className="text-muted-foreground">We'll contact you shortly to confirm your appointment.</p>
+                <CheckCircle className="h-14 w-14 text-emerald-600" />
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  Appointment Request Sent
+                </h3>
+                <p className="text-gray-600">
+                  Our team will contact you soon to confirm your booking.
+                </p>
               </motion.div>
             ) : (
-              <motion.form key="form" onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2">
+              <motion.form
+                key="form"
+                onSubmit={handleSubmit}
+                className="grid gap-6 sm:grid-cols-2"
+              >
                 <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *" required className={inputClass} />
                 <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number *" required type="tel" className={inputClass} />
                 <input name="email" value={form.email} onChange={handleChange} placeholder="Email Address" type="email" className={inputClass} />
@@ -107,19 +135,22 @@ const AppointmentForm = () => {
                     <option key={t} value={t}>{t}</option>
                   ))}
                 </select>
+
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="Any message or concerns…"
-                  rows={3}
+                  placeholder="Any concerns or notes…"
+                  rows={4}
                   className={`${inputClass} sm:col-span-2`}
                 />
+
                 <button
                   type="submit"
-                  className="sm:col-span-2 dental-gradient inline-flex items-center justify-center gap-2 rounded-xl px-8 py-3.5 text-base font-semibold text-primary-foreground shadow-hero transition-transform hover:scale-[1.02]"
+                  className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-emerald-700 hover:-translate-y-0.5"
                 >
-                  <CalendarDays className="h-5 w-5" /> Book Appointment
+                  <CalendarDays className="h-5 w-5" />
+                  Confirm Appointment
                 </button>
               </motion.form>
             )}

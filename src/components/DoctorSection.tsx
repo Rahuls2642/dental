@@ -1,50 +1,77 @@
 import { Award, GraduationCap, Users } from "lucide-react";
 import { motion } from "framer-motion";
+import doctorImg from "@/assets/doctor.jpg"; // replace with real image
 
 const DoctorSection = () => (
-  <section id="doctor" className="py-20 lg:py-28">
-    <div className="container mx-auto px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mx-auto max-w-2xl text-center"
-      >
-        <span className="text-sm font-semibold uppercase tracking-wider text-primary">Our Doctor</span>
-        <h2 className="mt-3 text-3xl font-bold text-foreground lg:text-4xl">Meet Your Dentist</h2>
-      </motion.div>
+  <section id="doctor" className="py-24 bg-[#f9fafb]">
+    <div className="container mx-auto px-6">
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.15 }}
-        className="mx-auto mt-14 max-w-md rounded-2xl bg-card p-8 shadow-card text-center"
-      >
-        {/* Avatar placeholder */}
-        <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full dental-gradient text-primary-foreground text-5xl font-bold">
-          N
-        </div>
-        <h3 className="text-xl font-bold text-foreground">Dr. Nisha</h3>
-        <p className="text-sm font-medium text-primary">BDS, MDS — Pedodontist</p>
+      <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-        <div className="mt-6 grid grid-cols-3 gap-4">
-          {[
-            { icon: GraduationCap, label: "BDS, MDS" },
-            { icon: Award, label: "10+ Years" },
-            { icon: Users, label: "5000+ Patients" },
-          ].map((item) => (
-            <div key={item.label} className="flex flex-col items-center gap-1">
-              <item.icon className="h-5 w-5 text-primary" />
-              <span className="text-xs font-semibold text-foreground">{item.label}</span>
-            </div>
-          ))}
-        </div>
+        {/* Doctor Image */}
+        <motion.div
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="relative mx-auto lg:mx-0 max-w-md"
+>
+  <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/5]">
+    <img
+      src={doctorImg}
+      alt="Dr. Nisha"
+      className="w-full h-full object-cover object-top"
+    />
+  </div>
+</motion.div>
+        {/* Doctor Info */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="text-sm font-medium uppercase tracking-wide text-emerald-600">
+            Meet Your Dentist
+          </span>
 
-        <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
-          Dr. Nisha specializes in pediatric and family dentistry, bringing a gentle touch and over a decade of clinical experience to every procedure.
-        </p>
-      </motion.div>
+          <h2 className="mt-4 text-4xl font-semibold text-gray-900">
+            Dr. Nisha
+          </h2>
+
+          <p className="mt-1 text-emerald-600 font-medium">
+            BDS, MDS — Specialist in Pediatric & Family Dentistry
+          </p>
+
+          <p className="mt-6 text-gray-600 leading-relaxed max-w-lg">
+            With over a decade of clinical experience, Dr. Nisha is dedicated
+            to delivering compassionate, precision-driven dental care. Her
+            patient-first philosophy ensures comfort, clarity, and long-term
+            oral health for every family she treats.
+          </p>
+
+          {/* Credentials */}
+          <div className="mt-10 flex flex-wrap gap-10">
+            {[
+              { icon: GraduationCap, label: "BDS, MDS" },
+              { icon: Award, label: "10+ Years Experience" },
+              { icon: Users, label: "5000+ Patients Treated" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600">
+                  <item.icon className="h-5 w-5" />
+                </div>
+                <span className="text-sm font-medium text-gray-800">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 h-px w-20 bg-emerald-500" />
+        </motion.div>
+
+      </div>
     </div>
   </section>
 );
