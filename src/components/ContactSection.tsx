@@ -45,8 +45,8 @@ const ContactSection = () => (
             <div>
               <h3 className="text-lg font-medium text-gray-900">Address</h3>
               <p className="mt-1 text-gray-600 text-sm leading-relaxed">
-                Shop No 111, FF, HUDA Market,<br />
-                Sector 55, Faridabad, Haryana 121015
+                Shop No xxx, FF, xxx Market,<br />
+                Sector 55, State, City 121015
               </p>
               <a
                 href="https://www.google.com/maps"
@@ -68,7 +68,7 @@ const ContactSection = () => (
                 href="tel:08810549632"
                 className="mt-1 block text-sm font-medium text-gray-700 hover:text-emerald-600"
               >
-                08810 549632
+                08810 xxxxxx
               </a>
             </div>
           </div>
