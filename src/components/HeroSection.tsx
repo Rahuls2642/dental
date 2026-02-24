@@ -4,6 +4,25 @@ import heroBg from "@/assets/hero-dental.jpg";
 
 const HeroSection = () => {
   return (
+    <>
+    {/* WhatsApp Floating Button */}
+<a
+  href="https://wa.me/919810315978?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full shadow-xl transition-all hover:scale-105"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="w-5 h-5"
+  >
+    <path d="M12 2C6.48 2 2 6.37 2 11.79c0 1.98.58 3.83 1.58 5.4L2 22l4.94-1.54c1.52.83 3.26 1.27 5.06 1.27 5.52 0 10-4.37 10-9.79S17.52 2 12 2zm0 17.64c-1.62 0-3.21-.43-4.6-1.25l-.33-.2-2.93.91.96-2.86-.21-.34A7.56 7.56 0 014.01 11.8c0-4.18 3.58-7.58 7.99-7.58 4.41 0 7.99 3.4 7.99 7.58 0 4.18-3.58 7.58-7.99 7.58z"/>
+  </svg>
+
+  <span className="hidden sm:inline">Chat on WhatsApp</span>
+</a>
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
@@ -85,6 +104,7 @@ const HeroSection = () => {
         </div>
       </motion.div>
     </section>
+    </>
   );
 };
 
