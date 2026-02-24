@@ -26,31 +26,24 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-emerald-100"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md border-b border-gray-200"
+          : "bg-white/80 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
+
         {/* Brand */}
         <a href="#home" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-white font-semibold shadow-md">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 text-white font-semibold">
             B
           </div>
 
           <div className="leading-tight">
-            <span
-              className={`block text-sm font-semibold tracking-tight ${
-                scrolled ? "text-gray-900" : "text-white"
-              }`}
-            >
-              Bhardwaj Dental Care
+            <span className="block text-sm font-semibold text-gray-900">
+              Bhardwaj dental care
             </span>
-            <span
-              className={`block text-[11px] ${
-                scrolled ? "text-gray-500" : "text-gray-200"
-              }`}
-            >
-              Multi-Speciality Clinic
+            <span className="block text-[11px] text-gray-500">
+              Multi Speciality Clinic
             </span>
           </div>
         </a>
@@ -61,11 +54,7 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`relative text-sm font-medium transition-colors ${
-                scrolled
-                  ? "text-gray-700 hover:text-emerald-600"
-                  : "text-white hover:text-emerald-300"
-              } after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-emerald-600 after:transition-all hover:after:w-full`}
+              className="text-sm text-gray-600 hover:text-emerald-600 transition-colors"
             >
               {link.label}
             </a>
@@ -73,7 +62,7 @@ const Navbar = () => {
 
           <a
             href="tel:08810549632"
-            className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:bg-emerald-700 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-emerald-700"
           >
             <Phone className="h-4 w-4" />
             Call Now
@@ -82,9 +71,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className={`lg:hidden transition-colors ${
-            scrolled ? "text-gray-800" : "text-white"
-          }`}
+          className="lg:hidden text-gray-800"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -103,8 +90,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-emerald-100 shadow-lg"
+            className="lg:hidden bg-white border-t border-gray-200"
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-5">
               {navLinks.map((link) => (
@@ -112,7 +98,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-gray-700 font-medium hover:text-emerald-600 transition-colors"
+                  className="text-gray-700 hover:text-emerald-600 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -120,7 +106,7 @@ const Navbar = () => {
 
               <a
                 href="tel:08810549632"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-medium text-white shadow-lg hover:bg-emerald-700 transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-medium text-white hover:bg-emerald-700"
               >
                 <Phone className="h-4 w-4" />
                 Call Now
